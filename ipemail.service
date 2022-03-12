@@ -1,0 +1,16 @@
+[Unit]
+Description=ipemail Service
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1800s
+ExecStart=/bin/bash [PATH_TO_IPEMAIL]/ipemail/start.sh
+ExecSop=/bin/bash [PATH_TO_IPEMAIL]/ipemail/stop.sh
+TimeoutSec=30
+RuntimeMaxSec=infinity
+PIDFile=/tmp/ipemail.pid
+
+[Install]
+WantedBy=multi-user.target
